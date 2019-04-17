@@ -18,10 +18,9 @@ class UsersController < ApplicationController
   def create
    @user = User.new(user_params)    # Not the final implementation!
    if @user.save
-     # Handle a successful save.
-     log_in @user
-     flash[:success] = "Welcome to the Sample App!"
-     redirect_to @user
+     @user.send_verification_email
+     flash[:info] = "Please check your email to activate your account."
+     redirect_to root_url
    else
      flash.now[:danger] = "Could not save client"
      render 'new'
@@ -35,6 +34,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = "Profile not updated"
+      @user.reload
       render 'edit'
     end
   end
