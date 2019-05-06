@@ -24,15 +24,18 @@ gem 'jbuilder', '~> 2.5'
 #adding Bootstrap gem
 gem 'bootstrap-sass', '3.4.1'
 #Devise
-gem 'hirb', '~> 0.7.3
-'#gem 'devise'
+gem 'hirb', '~> 0.7.3'
+gem 'faker', '~> 1.7', '>= 1.7.2'
+#gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'will_paginate', '>= 3.1'
+gem 'will_paginate-bootstrap'
+gem 'carrierwave'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+ gem 'mini_magick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -70,6 +73,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog-aws'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
